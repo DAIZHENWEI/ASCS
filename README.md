@@ -1,3 +1,6 @@
+# Active Sampling Count Sketch (ASCS) for Online SparseEstimation of a Trillion Scale Covariance Matrix
+
+
 # Experiment 1: generate the results given in the table1 and figure1
 BASE_DIR = directory in which evaluate.py is located
 
