@@ -1,16 +1,16 @@
 # Active Sampling Count Sketch (ASCS) for Online SparseEstimation of a Trillion Scale Covariance Matrix
+This repository includes the codes and commands of ASCS algorithm and experiments.
 
-
-# Experiment 1: generate the results given in the table1 and figure1
+## Experiment 1: generate the results given in the table1 and figure1
 BASE_DIR = directory in which evaluate.py is located
 
-## Setup Datasets: 
+### Setup Datasets: 
 By default we have a script for gisette dataset. you can change the name of dataset and the http path to the svm file to generate data for other datasets. To generate the gisette data
 Run :
 sh  setup_datasets.sh
 You can see that the gisette folder is created with the dataset and an empty folder "record". The runs of algorithm will dump values in this directory
 
-## Run the commands.
+### Run the commands.
 To generate relevant commands for gisette run the following :  (these run on CPU. we ran it on 28 cores. feel free to change parameters of taskset -c <> to adjust to requirements. 28core takes hardly a minute to run)
 bash exp1.sh | grep gisette
 
@@ -19,7 +19,7 @@ Every command line will generate two files in the record folder.
 > Files data* will be used to plot figures
 
 
-# FIGURE 1
+## FIGURE 1
 cd $BASE_DIR/gisette/record/
 to generate table 1 (a)
 python3 ../../view_f1max.py --files $(ls data*ALPHA2*.0_* data*constant* | xargs | sed 's/ /,/g') --max_sig 0.95 --min_sig 0.05
@@ -29,8 +29,8 @@ python3 ../../view_f1max.py --files $(ls data*98.0_* data*constant* | xargs | se
 the correlations* files have topK correlations in csv format K,fraction_of_alphap,mean_correlation
 
 
-# Experiment 2
-# base directory is $BASE_DIR/topK
+## Experiment 2
+## base directory is $BASE_DIR/topK
 cd $BASE_DIR/topK/
 sh setup_datasets.sh
 
